@@ -52,3 +52,15 @@ GROUP BY player_id;
 SELECT MAX(salary) AS SecondHighestSalary
 FROM Employee
 WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    SET N = N - 1;
+    RETURN (
+        SELECT DISTINCT salary
+        FROM Employee
+        ORDER BY salary DESC
+        LIMIT 1 OFFSET N
+    );
+END

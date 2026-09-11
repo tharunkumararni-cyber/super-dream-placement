@@ -46,3 +46,9 @@ WHERE w1.temperature > w2.temperature;
 SELECT player_id, MIN(event_date) AS first_login
 FROM Activity
 GROUP BY player_id;
+
+
+
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);

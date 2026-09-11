@@ -19,3 +19,10 @@ SELECT email AS Email
 FROM Person
 GROUP BY email
 HAVING COUNT(email) > 1;
+
+
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id = o.customerId
+WHERE o.customerId IS NULL;

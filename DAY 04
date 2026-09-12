@@ -10,3 +10,17 @@ JOIN Logs l2 ON l1.id = l2.id - 1
 JOIN Logs l3 ON l2.id = l3.id - 1
 WHERE l1.num = l2.num
   AND l2.num = l3.num;
+
+
+SELECT d.name AS Department,
+       e.name AS Employee,
+       e.salary AS Salary
+FROM Employee e
+JOIN Department d
+ON e.departmentId = d.id
+WHERE 3 > (
+    SELECT COUNT(DISTINCT e2.salary)
+    FROM Employee e2
+    WHERE e2.departmentId = e.departmentId
+      AND e2.salary > e.salary
+);

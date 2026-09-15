@@ -87,6 +87,25 @@ class Solution {
         return right;
     }
 }
+
+class Solution {
+    public int climbStairs(int n) {
+        if (n <= 2) {
+            return n;
+        }
+
+        int a = 1;
+        int b = 2;
+
+        for (int i = 3; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+
+        return b;
+    }
+}
     }
 }
 AND request_at BETWEEN '2013-10-01' AND '2013-10-03'

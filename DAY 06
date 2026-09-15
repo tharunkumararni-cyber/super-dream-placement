@@ -28,5 +28,26 @@ WHERE client_id IN (
 AND driver_id IN (
     SELECT users_id FROM Users WHERE banned = 'No'
 )
+
+
+class Solution {
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int max = 0;
+
+        while (left < right) {
+            int area = Math.min(height[left], height[right]) * (right - left);
+            max = Math.max(max, area);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return max;
+    }
+}
 AND request_at BETWEEN '2013-10-01' AND '2013-10-03'
 GROUP BY request_at;

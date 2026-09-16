@@ -25,7 +25,10 @@ GROUP BY customer_number
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
-
+SELECT class
+FROM Courses
+GROUP BY class
+HAVING COUNT(student) >= 5;
 SELECT name, population, area
 FROM World
 WHERE area >= 3000000

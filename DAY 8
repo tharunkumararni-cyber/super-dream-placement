@@ -120,6 +120,22 @@ class Solution {
             return minDepth(root.left) + 1;
         }
 
+
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.left == null && root.right == null) {
+            return targetSum == root.val;
+        }
+
+        return hasPathSum(root.left, targetSum - root.val) ||
+               hasPathSum(root.right, targetSum - root.val);
+    }
+}
+
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
 }

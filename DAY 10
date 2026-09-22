@@ -31,3 +31,11 @@ SET sex = CASE
     WHEN sex = 'm' THEN 'f'
     ELSE 'm'
 END;
+
+
+
+
+SELECT actor_id, director_id
+FROM ActorDirector
+GROUP BY actor_id, director_id
+HAVING COUNT(*) >= 3;

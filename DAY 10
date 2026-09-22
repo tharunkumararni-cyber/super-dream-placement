@@ -69,3 +69,16 @@ WHERE (product_id, year) IN (
     FROM Sales
     GROUP BY product_id
 );
+
+
+
+
+SELECT name
+FROM Employee
+WHERE id IN (
+    SELECT managerId
+    FROM Employee
+    WHERE managerId IS NOT NULL
+    GROUP BY managerId
+    HAVING COUNT(*) >= 5
+);

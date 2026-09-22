@@ -49,3 +49,13 @@ SELECT
 FROM Sales s
 JOIN Product p
 ON s.product_id = p.product_id;
+
+
+
+SELECT customer_id
+FROM Customer
+GROUP BY customer_id
+HAVING COUNT(DISTINCT product_key) = (
+    SELECT COUNT(*)
+    FROM Product
+);

@@ -6,3 +6,10 @@ WHERE num IN (
     GROUP BY num
     HAVING COUNT(num) = 1
 );
+
+
+SELECT *
+FROM Cinema
+WHERE description != 'boring'
+  AND id % 2 = 1
+ORDER BY rating DESC;
